@@ -1,5 +1,4 @@
-$pdf_mode = 4;
-$out_dir = 'build';
-$aux_dir = 'build';
+my $common_latexmkrc = './union-docs-common/.latexmkrc';
 
-$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';
+do $common_latexmkrc
+  or die "Could not load $common_latexmkrc: $@ $!";

@@ -37,6 +37,8 @@ The generated PDF and temporary files are written to `build/`, which is ignored 
 
 `latexmk` automatically runs LaTeX as many times as needed for generated content such as the table of contents.
 
+The root `.latexmkrc` loads the shared build settings from `union-docs-common/.latexmkrc`.
+
 In VS Code, install LaTeX Workshop and use the normal build button. The root file selects LaTeX Workshop's built-in `latexmk (lualatex)` recipe, so no repository VS Code settings are needed.
 
 To remove temporary build files while keeping the PDF, run:
