@@ -1,1 +1,1 @@
-union-docs-common/uniondoc.cls
+\input{union-docs-common/uniondoc.cls}
