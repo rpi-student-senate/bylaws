@@ -8,3 +8,4 @@ tmp/
 *.pdf
 *.toc
 *.aux
+build/*
