@@ -3,9 +3,9 @@
 *.log
 tmp/
 
-*.out
-*.log
-*.pdf
-*.toc
-*.aux
+**.out
+**.log
+**.pdf
+**.toc
+**.aux
 build/*
