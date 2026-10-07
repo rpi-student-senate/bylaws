@@ -34,10 +34,13 @@ latexmk main.tex
 ```
 
 The generated PDF and temporary files are written to `build/`, which is ignored by Git.
+This build process works on Windows, macOS, and Linux.
 
 `latexmk` automatically runs LaTeX as many times as needed for generated content such as the table of contents.
 
-The root `.latexmkrc` loads the shared build settings from `union-docs-common/.latexmkrc`.
+Build settings live in `union-docs-common/.latexmkrc`; the root `.latexmkrc` loads that file. GitHub Actions copies `build/main.pdf` to the project root before uploading or committing it.
+
+On pushes to `main`, GitHub Actions commits the updated root `main.pdf` so the repository's history includes the latest document alongside its source.
 
 In VS Code, install LaTeX Workshop and use the normal build button. The root file selects LaTeX Workshop's built-in `latexmk (lualatex)` recipe, so no repository VS Code settings are needed.
 
@@ -47,7 +50,7 @@ To remove temporary build files while keeping the PDF, run:
 latexmk -c main.tex
 ```
 
-To remove the PDF and temporary build files, run:
+To remove the PDF and temporary files in `build/`, run (the published root `main.pdf` is retained):
 
 ```sh
 latexmk -C main.tex

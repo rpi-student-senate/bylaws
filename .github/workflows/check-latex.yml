@@ -1,0 +1,33 @@
+name: Check LaTeX build
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Compile main.tex
+        uses: xu-cheng/texlive-action@v3
+        with:
+          run: latexmk main.tex
+
+      - name: Copy preview PDF to project root
+        run: cp build/main.pdf main.pdf
+
+      - name: Upload preview PDF
+        uses: actions/upload-artifact@v6
+        with:
+          name: preview-pdf
+          path: main.pdf
+          if-no-files-found: error
+          retention-days: 30
