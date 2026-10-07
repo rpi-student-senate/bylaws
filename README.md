@@ -38,7 +38,7 @@ This build process works on Windows, macOS, and Linux.
 
 `latexmk` automatically runs LaTeX as many times as needed for generated content such as the table of contents.
 
-All build settings, including the PDF copy step, live in `union-docs-common/.latexmkrc`. The root `.latexmkrc` only loads that file. Local builds and GitHub Actions use the same configuration.
+Build settings live in `union-docs-common/.latexmkrc`; the root `.latexmkrc` loads that file. GitHub Actions copies `build/main.pdf` to the project root before uploading or committing it.
 
 On pushes to `main`, GitHub Actions commits the updated root `main.pdf` so the repository's history includes the latest document alongside its source.
 
